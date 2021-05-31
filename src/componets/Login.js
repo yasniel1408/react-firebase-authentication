@@ -1,10 +1,10 @@
 import React, { useCallback, useContext } from "react";
 import { withRouter, Redirect } from "react-router";
+import { Link } from "react-router-dom";
 import app from "../utils/base.js";
 import { AuthContext } from "./Auth";
 
 const Login = ({ history }) => {
-    
   const handleLogin = useCallback(
     async (event) => {
       event.preventDefault();
@@ -28,7 +28,7 @@ const Login = ({ history }) => {
   }
 
   return (
-    <div>
+    <div className="content">
       <h1>Log in</h1>
       <form onSubmit={handleLogin}>
         <label>
@@ -39,7 +39,8 @@ const Login = ({ history }) => {
           Password
           <input name="password" type="password" placeholder="Password" />
         </label>
-        <button type="submit">Log in</button>
+        <button style={{height: 30}} type="submit">Log in</button>
+        <Link to="/signup">SignUp</Link>
       </form>
     </div>
   );
